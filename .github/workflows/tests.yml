@@ -1,0 +1,31 @@
+name: Tests
+
+on: [ 'push', 'pull_request' ]
+
+jobs:
+    tests:
+        runs-on: ${{ matrix.os }}
+        strategy:
+            fail-fast: true
+            matrix:
+                os: [ ubuntu-latest ]
+                php: [ 8.1, 8.2 ]
+                stability: [ prefer-lowest, prefer-stable ]
+
+        name: Tests php${{ matrix.php }} - ${{ matrix.os }} - ${{ matrix.stability }}
+
+        steps:
+            -   name: Checkout
+                uses: actions/checkout@v3
+
+            -   name: Setup PHP
+                uses: shivammathur/setup-php@v2
+                with:
+                    php-version: ${{ matrix.php }}
+                    coverage: pcov
+
+            -   name: Install Composer dependencies
+                run: composer update --${{ matrix.stability }} --no-interaction
+
+            -   name: Unit Tests
+                run: composer test:unit
