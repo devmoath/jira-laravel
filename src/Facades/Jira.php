@@ -20,7 +20,7 @@ use Jira\Resources\Users;
  * @method static Requests requests()
  * @method static Users users()
  */
-final class Jira extends Facade
+class Jira extends Facade
 {
     /**
      * Get the registered name of the component.

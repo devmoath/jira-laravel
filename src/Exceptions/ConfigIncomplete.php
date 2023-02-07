@@ -9,7 +9,7 @@ use InvalidArgumentException;
 /**
  * @internal
  */
-final class ConfigIncomplete extends InvalidArgumentException
+class ConfigIncomplete extends InvalidArgumentException
 {
     /**
      * Create a new exception instance.
