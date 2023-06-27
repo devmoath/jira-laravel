@@ -66,3 +66,20 @@ Unit tests:
 ```bash
 composer test:unit
 ```
+
+## Simplified setup using Docker
+
+If you have Docker installed, you can quickly get all dependencies for jira-laravel in place using Docker files. Assuming you have the repository cloned, you may run the following
+commands:
+
+1. `docker compose build` to build the Docker image
+2. `docker compose run --rm composer install` to install Composer dependencies
+3. `docker compose run --rm composer test` to run the project tests and analysis tools
+
+If you want to check things work against a specific version of PHP, you may include the `PHP` build argument when building the image:
+
+```bash
+docker compose build --build-arg PHP=8.2
+```
+
+The default PHP version will always be the lowest version of PHP supported by jira-laravel.

@@ -21,7 +21,6 @@ return static function (RectorConfig $rectorConfig): void {
         SetList::NAMING,
         SetList::PRIVATIZATION,
         SetList::TYPE_DECLARATION,
-        SetList::TYPE_DECLARATION_STRICT,
         SetList::EARLY_RETURN,
         LevelSetList::UP_TO_PHP_81,
     ]);
