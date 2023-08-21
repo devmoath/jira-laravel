@@ -60,6 +60,14 @@ echo $result['issues'][0]['key']; // KEY-1000
 
 For usage examples, take a look at the [devmoath/jira-php](https://github.com/devmoath/jira-php) repository.
 
----
+## Contributing
+
+Thank you for considering contributing to the Jira PHP for Laravel! The contribution guide can be found in the [CONTRIBUTING](CONTRIBUTING.md).
+
+## Security Vulnerabilities
+
+If you discover any security-related issues, please email moath.alhajrii@gmail.com instead of using the issue tracker.
+
+## License
 
 Jira PHP for Laravel is an open-sourced software licensed under the **[MIT license](https://opensource.org/licenses/MIT)**.

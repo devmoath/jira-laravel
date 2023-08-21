@@ -1,6 +1,6 @@
 name: Tests
 
-on: [ 'push', 'pull_request' ]
+on: ["push", "pull_request"]
 
 jobs:
     tests:
@@ -8,26 +8,26 @@ jobs:
         strategy:
             fail-fast: true
             matrix:
-                php: [ 8.1, 8.2 ]
-                laravel: [ 10.*, 9.* ]
-                stability: [ prefer-lowest, prefer-stable ]
+                php: [8.1, 8.2]
+                laravel: [10.*, 9.*]
+                stability: [prefer-lowest, prefer-stable]
 
         name: Tests php@${{ matrix.php }} - laravel@${{ matrix.laravel }} - ${{ matrix.stability }}
 
         steps:
-            -   name: Checkout
-                uses: actions/checkout@v3
+            - name: Checkout
+              uses: actions/checkout@v3
 
-            -   name: Setup PHP
-                uses: shivammathur/setup-php@v2
-                with:
-                    php-version: ${{ matrix.php }}
-                    coverage: pcov
+            - name: Setup PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: ${{ matrix.php }}
+                  coverage: pcov
 
-            -   name: Install Composer dependencies
-                run: |
-                    composer require "laravel/framework:${{ matrix.laravel }}" --no-update --no-interaction
-                    composer update --${{ matrix.stability }} --no-interaction
+            - name: Install Composer dependencies
+              run: |
+                  composer require "laravel/framework:${{ matrix.laravel }}" --no-update --no-interaction
+                  composer update --${{ matrix.stability }} --no-interaction
 
-            -   name: Unit Tests
-                run: composer test:unit
+            - name: Unit Tests
+              run: composer test:unit
